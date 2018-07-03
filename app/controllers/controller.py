@@ -11,13 +11,11 @@ from app.models.forms import SearchForm
 @app.route("/", methods=["GET", "POST"])
 def index():
     form = SearchForm()
-    data = ""
     json_data = ""
     if form.validate_on_submit():
         data = searcher(form.term.data, form.type_search.data)
         json_data = resultSearch(data)
-    else:
-        print(form.errors)
+
     return render_template('index.html', form=form, json_data=json_data)
 
 def searcher(term, type_search):
@@ -34,8 +32,8 @@ def searcher(term, type_search):
     else:
         response = requests.get('https://swapi.co/api/species/?search='+term)
 
-    return response.text
+    return response
 
 def resultSearch(data):
-    json_data = json.loads(data)
+    json_data = data.json()    
     return json_data

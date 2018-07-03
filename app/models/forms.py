@@ -10,5 +10,5 @@ class SearchForm(FlaskForm):
                     ('vehicles', 'Vehicles'),
                     ('people', 'People'),
                     ('films', 'films'),
-                    ('species', 'Species')])
+                    ('species', 'Species')] )
      

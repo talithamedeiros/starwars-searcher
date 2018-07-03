@@ -13,12 +13,12 @@ def index():
     form = SearchForm()
     json_data = ""
     if form.validate_on_submit():
-        data = searcher(form.term.data, form.type_search.data)
-        json_data = resultSearch(data)
+        data = responseSearch(form.term.data, form.type_search.data)
+        json_data = jsonResult(data)
 
     return render_template('index.html', form=form, json_data=json_data)
 
-def searcher(term, type_search):
+def responseSearch(term, type_search):
     if(type_search == 'people'):
         response = requests.get('https://swapi.co/api/people/?search='+term)
     elif(type_search == 'spaceships'):
@@ -34,6 +34,6 @@ def searcher(term, type_search):
 
     return response
 
-def resultSearch(data):
+def jsonResult(data):
     json_data = data.json()    
     return json_data

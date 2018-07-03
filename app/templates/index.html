@@ -11,6 +11,7 @@
   </head>
   <body> 
         <div class="col-md-10 col-md-offset-10">
+            <br><br>
             <h5>Search a term</h5> 
             <form action="/" method="POST">
                     {{ form.csrf_token }}
@@ -37,8 +38,9 @@
                     <button class="btn btn-dark" type="submit" name="action">may the search be with you
                         <i class="fas fa-search"></i>
                     </button>
+                    <br><br><br>
 
-                    
+                    {{json_data}}
             </form>
         </div>
     </body>

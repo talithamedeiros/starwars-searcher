@@ -1,5 +1,5 @@
-from Flask_WTF import FlaskForm
-from WTForms import StringField, RadioField
+from flask_wtf import FlaskForm
+from wtforms import StringField, RadioField
 
 
 class SearchForm(FlaskForm):
@@ -10,5 +10,5 @@ class SearchForm(FlaskForm):
                     ('vehicles', 'Vehicles'),
                     ('people', 'People'),
                     ('films', 'films'),
-                    ('species', 'Species')] )
+                    ('species', 'Species')])
      

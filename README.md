@@ -1,6 +1,6 @@
 ## Star Wars searcher about planets, spaceships, vehicles, people, films and species
 
-A simple json response using [Star Wars API](https://swapi.co/), [Python helper library](https://github.com/phalt/swapi-python) for SWAPI & python3 with flask :rocket::star::collision:
+A simple json response using [Star Wars API](https://swapi.co/) & python3 with flask :rocket::star::collision:
 
 ### Guidelines
 * Install python3.6

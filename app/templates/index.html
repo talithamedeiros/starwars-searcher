@@ -2,66 +2,40 @@
 <html>
   <head>
     <title>Star Wars</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   </head>
-  <body>
-    {{ form }}
+  <body> 
+        <div class="col-md-10 col-md-offset-10">
+            <h5>Search a term</h5> 
+            <form action="/" method="POST">
+                    {{ form.csrf_token }}
+                    <div class="form-group">
+                        {{ form.term(class="form-control", placeholder="eg.: Naboo") }}
+                    </div>
 
-      <!-- <form action="/" method="POST">
-        <h5>Search a term</h5>
-        <div class="row">
-            <div class="input-field col s6">
-                <i class="material-icons prefix">local_movies</i>
-                <input type="text" name="termo" required>
-            </div>
+                    <div class="form-group">
+                        {% for subfield in form.type_search %}
+                            <tr>
+                                <td>{{ subfield }}</td>
+                                <td>{{ subfield.label }}</td>
+                            </tr>
+                        {% endfor %}
+                    </div>
+
+                    {% if form.errors.term or form.errors.type_search %}
+                        <div class="alert alert-danger" role="alert">
+                            Please, fill out the fields
+                        </div>
+                    {% endif %}
+                    <button class="btn btn-dark" type="submit" name="action">Search
+                        <i class="fas fa-search"></i>
+                    </button>
+            </form>
         </div>
-
-        <div class="row">
-
-            <label>
-                <input class="with-gap" name="type_search" type="radio" value="planets" checked />
-                <span>Planets</span>
-            </label>
-          
-            <label>
-                <input class="with-gap" name="type_search" type="radio" value="spaceships" />
-                <span>Spaceships</span>
-            </label>
-         
-            <label>
-                <input class="with-gap" name="type_search" type="radio" value="vehicles" />
-                <span>Vehicles</span>
-            </label>
-         
-            <label>
-                <input class="with-gap" name="type_search" type="radio" value="people" />
-                <span>People</span>
-            </label>
-
-            <label>
-                <input class="with-gap" name="type_search" type="radio" value="films" />
-                <span>Films</span>
-            </label>
-
-            <label>
-                <input class="with-gap" name="type_search" type="radio" value="species" />
-                <span>Species</span>
-            </label>
-          
-        </div>
-
-        <button class="btn waves-effect waves-light" type="submit" name="action">Search
-          <i class="material-icons right">search</i>
-        </button>
-      </form> -->
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-  </body>
+    </body>
 </html>

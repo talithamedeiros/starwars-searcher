@@ -1,0 +1,6 @@
+#Environments
+venv/
+
+#Pyc
+__pycache__/
+

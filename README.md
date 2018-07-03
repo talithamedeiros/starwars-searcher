@@ -27,6 +27,8 @@ A searcher app using [Star Wars API](https://swapi.co/), [Python helper library]
 
 #### Run your app!
 
+``source venv/bin/activate``
+
 ``python3 app.py runserver``
 
 

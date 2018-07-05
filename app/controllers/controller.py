@@ -19,18 +19,9 @@ def index():
     return render_template('index.html', form=form, json_data=json_data)
 
 def responseSearch(term, type_search):
-    if(type_search == 'people'):
-        response = requests.get('https://swapi.co/api/people/?search='+term)
-    elif(type_search == 'spaceships'):
-        response = requests.get('https://swapi.co/api/spaceships/?search='+term)    
-    elif(type_search == 'vehicles'):
-        response = requests.get('https://swapi.co/api/vehicles/?search='+term)    
-    elif(type_search == 'planets'):
-        response = requests.get('https://swapi.co/api/planets/?search='+term)    
-    elif(type_search == 'films'):
-        response = requests.get('https://swapi.co/api/films/?search='+term)    
-    else:
-        response = requests.get('https://swapi.co/api/species/?search='+term)
+    uri = f'https://swapi.co/api/{type_search}/?search={term}'
+    
+    response = requests.get(uri)
 
     return response
 

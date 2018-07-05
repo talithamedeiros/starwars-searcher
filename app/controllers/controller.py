@@ -18,13 +18,14 @@ def index():
 
     return render_template('index.html', form=form, json_data=json_data)
 
+   
 def responseSearch(term, type_search):
-    uri = f'https://swapi.co/api/{type_search}/?search={term}'
-    
+    uri = f'https://swapi.co/api/{type_search}/?search={term}'    
     response = requests.get(uri)
 
     return response
 
+   
 def jsonResult(data):
     json_data = data.json()    
     return json_data

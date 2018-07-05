@@ -4,7 +4,7 @@ from swapi import swapi
 import requests
 import json
  
-from app.models.forms import SearchForm
+from app.forms.forms import SearchForm
 
 
 @app.route("/index", methods=["GET", "POST"])

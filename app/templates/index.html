@@ -40,7 +40,18 @@
                     </button>
                     <br><br><br>
 
-                    {{json_data}}
+                    
+                    {% for result in json_data.results %}
+                    <dl>
+                        {% for key, value in result.items() %}
+                            <dt>{{ key|e }}</dt>
+                            <dd>{{ value|e }}</dd>
+                        {% endfor %}
+                    </dl>
+                    {% else %}
+                        <strong>No results found.</strong>
+                    {% endfor %}
+             
             </form>
         </div>
     </body>

@@ -15,7 +15,7 @@ def index():
     if form.validate_on_submit():
         data = responseSearch(form.term.data, form.type_search.data)
         json_data = jsonResult(data)
-
+ 
     return render_template('index.html', form=form, json_data=json_data)
 
    
